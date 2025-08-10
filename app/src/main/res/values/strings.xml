@@ -1,0 +1,8 @@
+<resources>
+    <string name="TipTimeLayout">TipTime</string>
+    <string name="calculate_tip">Calculate tip</string>
+    <string name="bill_amount">Bill amount</string>
+    <string name="how_was_the_service">Service</string>
+    <string name="tip_amount">Tip amount: %s</string>
+    <string name="round_up_tip">For Round up</string>
+</resources>
