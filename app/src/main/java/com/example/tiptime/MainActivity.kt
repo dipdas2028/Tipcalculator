@@ -29,7 +29,10 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             TipTimeTheme {
-                Surface {
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
                     TipTimeLayout()
                 }
             }
@@ -44,12 +47,10 @@ fun TipTimeLayout() {
     var peopleInput by rememberSaveable { mutableStateOf("1") }
     var roundUp by rememberSaveable { mutableStateOf(false) }
 
-    // Convert inputs to numbers safely
     val amount = amountInput.toDoubleOrNull() ?: 0.0
     val tipPercent = tipInput.toDoubleOrNull() ?: 0.0
     val peopleCount = (peopleInput.toIntOrNull() ?: 1).coerceAtLeast(1)
 
-    // Calculate values as Doubles
     val tip = calculateTip(amount, tipPercent, roundUp)
     val total = amount + tip
     val perPerson = total / peopleCount
@@ -70,7 +71,6 @@ fun TipTimeLayout() {
             style = MaterialTheme.typography.headlineSmall
         )
 
-        // Bill amount
         EditNumberField(
             label = R.string.bill_amount,
             value = amountInput,
@@ -80,7 +80,6 @@ fun TipTimeLayout() {
                 .fillMaxWidth()
         )
 
-        // Preset tip buttons
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             listOf(10, 15, 20).forEach { percent ->
                 Button(onClick = { tipInput = percent.toString() }) {
@@ -89,7 +88,6 @@ fun TipTimeLayout() {
             }
         }
 
-        // Tip percent input
         EditNumberField(
             label = R.string.how_was_the_service,
             value = tipInput,
@@ -99,14 +97,12 @@ fun TipTimeLayout() {
                 .fillMaxWidth()
         )
 
-        // Round up toggle
         RoundTheTipRow(
             roundUp = roundUp,
             onRoundUpChanged = { roundUp = it },
             modifier = Modifier.padding(bottom = 16.dp)
         )
 
-        // People count
         EditNumberField(
             label = R.string.people_count,
             value = peopleInput,
@@ -116,7 +112,6 @@ fun TipTimeLayout() {
                 .fillMaxWidth()
         )
 
-        // Results
         Text(
             text = stringResource(R.string.tip_amount, formatCurrency(tip)),
             style = MaterialTheme.typography.titleLarge
@@ -177,7 +172,6 @@ fun RoundTheTipRow(
     }
 }
 
-// ---- Calculation helpers ----
 private fun calculateTip(amount: Double, tipPercent: Double, roundUp: Boolean): Double {
     var tip = tipPercent / 100 * amount
     if (roundUp) {
