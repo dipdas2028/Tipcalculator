@@ -86,7 +86,7 @@ Spacer(modifier = Modifier.height(80.dp))
 
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             listOf(10, 15, 20).forEach { percent ->
-                Button(onClick = { tipInput = percent.toString() }) {
+                ExtendedFloatingActionButton(onClick = { tipInput = percent.toString() }) {
                     Text("$percent%")
                 }
             }
