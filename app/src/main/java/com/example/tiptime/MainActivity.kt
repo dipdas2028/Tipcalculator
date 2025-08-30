@@ -131,7 +131,7 @@ Spacer(modifier = Modifier.height(19.dp))
 
         Text(
             text = stringResource(R.string.per_person_amount, formatCurrency(perPerson)),
-            style = MaterialTheme.typography.bodyLarge
+            style = MaterialTheme.typography.titleLarge
         )
 
         Spacer(modifier = Modifier.height(100.dp))
