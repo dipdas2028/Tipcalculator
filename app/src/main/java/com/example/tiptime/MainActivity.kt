@@ -65,6 +65,8 @@ fun TipTimeLayout() {
     ) {
         Text(
             text = stringResource(R.string.calculate_tip),
+            color = MaterialTheme.colorScheme.primary,
+            style = MaterialTheme.typography.titleLarge,
             modifier = Modifier
                 .padding(bottom = 20.dp, top = 40.dp)
                 .align(Alignment.Start),
