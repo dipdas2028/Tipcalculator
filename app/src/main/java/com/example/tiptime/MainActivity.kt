@@ -106,6 +106,7 @@ Spacer(modifier = Modifier.height(19.dp))
             onRoundUpChanged = { roundUp = it },
             modifier = Modifier.padding(bottom = 16.dp)
         )
+        Spacer(modifier = Modifier.height(8.dp))
 
         EditNumberField(
             label = R.string.people_count,
