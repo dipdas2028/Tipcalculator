@@ -73,6 +73,8 @@ fun TipTimeLayout() {
                     )
                 Spacer(modifier = Modifier.height(10.dp))
 
+    }
+Spacer(modifier = Modifier.height(80.dp))
         EditNumberField(
             label = R.string.bill_amount,
             value = amountInput,
