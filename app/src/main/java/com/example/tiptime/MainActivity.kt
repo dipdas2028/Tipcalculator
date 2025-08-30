@@ -134,7 +134,7 @@ Spacer(modifier = Modifier.height(19.dp))
             style = MaterialTheme.typography.titleLarge
         )
 
-        Spacer(modifier = Modifier.height(100.dp))
+        Spacer(modifier = Modifier.height(20.dp))
     }
 }
 
