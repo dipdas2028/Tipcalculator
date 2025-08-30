@@ -63,14 +63,15 @@ fun TipTimeLayout() {
             .safeDrawingPadding(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(
-            text = stringResource(R.string.calculate_tip),
-            color = MaterialTheme.colorScheme.primary,
-            style = MaterialTheme.typography.titleLarge,
-            modifier = Modifier
-                .padding(bottom = 16.dp, top = 40.dp)
-                .align(alignment = Alignment.CenterHorizontally)
-        )
+            Row(modifier = Modifier.padding(9.dp)) {
+                Text(
+                    text = stringResource(R.string.calculate_tip),
+                    color = MaterialTheme.colorScheme.primary,
+                    style = MaterialTheme.typography.titleLarge,
+                    modifier = Modifier
+                        .padding(bottom = 6.dp, top = 10.dp),
+                    )
+                Spacer(modifier = Modifier.height(10.dp))
 
         EditNumberField(
             label = R.string.bill_amount,
