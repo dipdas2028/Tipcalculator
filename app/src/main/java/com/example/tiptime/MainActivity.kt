@@ -100,7 +100,7 @@ Spacer(modifier = Modifier.height(80.dp))
                 .padding(vertical = 16.dp)
                 .fillMaxWidth()
         )
-
+Spacer(modifier = Modifier.height(19.dp))
         RoundTheTipRow(
             roundUp = roundUp,
             onRoundUpChanged = { roundUp = it },
