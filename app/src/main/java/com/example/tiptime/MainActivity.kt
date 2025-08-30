@@ -117,6 +117,8 @@ Spacer(modifier = Modifier.height(19.dp))
                 .fillMaxWidth()
         )
 
+        Spacer(modifier = Modifier.height(8.dp))
+
         Text(
             text = stringResource(R.string.tip_amount, formatCurrency(tip)),
             style = MaterialTheme.typography.titleLarge
