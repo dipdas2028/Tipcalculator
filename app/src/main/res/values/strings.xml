@@ -3,9 +3,9 @@
     <string name="bill_amount">Bill Amount</string>
     <string name="how_was_the_service">Tip Percentage</string>
     <string name="people_count">Number of People</string>
-    <string name="round_up_tip">Round Up Tip?</string>
-    <string name="tip_amount">Tip: %s</string>
-    <string name="total_amount">Total: %s</string>
-    <string name="per_person_amount">Per Person: %s</string>
-    <string name="TipTimeLayout">Tip Time</string>
+    <string name="round_up_tip">Round up Tip?</string>
+    <string name="tip_amount">Tip: %1$s</string>
+    <string name="total_amount">Total: %1$s</string>
+    <string name="per_person_amount">Per Person: %1$s</string>
+
 </resources>
