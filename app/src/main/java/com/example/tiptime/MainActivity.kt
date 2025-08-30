@@ -69,7 +69,7 @@ fun TipTimeLayout() {
             style = MaterialTheme.typography.titleLarge,
             modifier = Modifier
                 .padding(bottom = 16.dp, top = 40.dp)
-                .align(alignment = Alignment.TopStart as Alignment.Horizontal)
+                .align(alignment = Alignment.CenterHorizontally)
         )
 
         EditNumberField(
