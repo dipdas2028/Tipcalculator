@@ -39,6 +39,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.tiptime.ui.theme.TipTimeTheme
 import kotlin.math.ceil
+import java.util.Locale
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -80,18 +81,18 @@ fun TipTimeLayout() {
             .safeDrawingPadding(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-            Row(modifier = Modifier.padding(9.dp)) {
-                Text(
-                    text = stringResource(R.string.calculate_tip),
-                    color = MaterialTheme.colorScheme.primary,
-                    style = MaterialTheme.typography.titleLarge,
-                    modifier = Modifier
-                        .padding(bottom = 6.dp, top = 10.dp),
-                    )
-                Spacer(modifier = Modifier.height(10.dp))
+        Row(modifier = Modifier.padding(9.dp)) {
+            Text(
+                text = stringResource(R.string.calculate_tip),
+                color = MaterialTheme.colorScheme.primary,
+                style = MaterialTheme.typography.titleLarge,
+                modifier = Modifier
+                    .padding(bottom = 6.dp, top = 10.dp),
+            )
+            Spacer(modifier = Modifier.height(10.dp))
 
-    }
-Spacer(modifier = Modifier.height(80.dp))
+        }
+        Spacer(modifier = Modifier.height(80.dp))
         EditNumberField(
             label = R.string.bill_amount,
             value = amountInput,
@@ -117,7 +118,7 @@ Spacer(modifier = Modifier.height(80.dp))
                 .padding(vertical = 16.dp)
                 .fillMaxWidth()
         )
-Spacer(modifier = Modifier.height(19.dp))
+        Spacer(modifier = Modifier.height(19.dp))
         RoundTheTipRow(
             roundUp = roundUp,
             onRoundUpChanged = { roundUp = it },
@@ -128,7 +129,11 @@ Spacer(modifier = Modifier.height(19.dp))
         EditNumberField(
             label = R.string.people_count,
             value = peopleInput,
-            onValueChanged = { peopleInput = it },
+            onValueChanged = { input ->
+                if(input.all { it.isDigit() }){
+                    peopleInput = input
+                }
+            },
             modifier = Modifier
                 .padding(bottom = 16.dp)
                 .fillMaxWidth()
@@ -154,6 +159,7 @@ Spacer(modifier = Modifier.height(19.dp))
         Spacer(modifier = Modifier.height(20.dp))
     }
 }
+
 
 @Composable
 fun EditNumberField(
@@ -205,10 +211,11 @@ private fun calculateTip(amount: Double, tipPercent: Double, roundUp: Boolean): 
 }
 
 private fun formatCurrency(amount: Double): String {
-    return NumberFormat.getCurrencyInstance().format(amount)
+    val format = NumberFormat.getCurrencyInstance(Locale("en", "IN"))
+    return format.format(amount)
 }
 
-@Preview(showBackground = true)
+@Preview(showSystemUi = true)
 @Composable
 fun TipTimeLayoutPreview() {
     TipTimeTheme {
